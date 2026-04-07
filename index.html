@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroPalmital - O Portal Completo do Campo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-announcement">
+        <div class="container flex-top">
+            <span><i class="fas fa-clock"></i> Brasília: <strong id="relogio">00:00:00</strong></span>
+            <span><i class="fas fa-calendar-alt"></i> 07 de Abril de 2026</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <h1>Agro<span>Palmital</span></h1>
+            </div>
+            <div class="market-summary">
+                <div class="summary-item">
+                    <small>DÓLAR COMERCIAL</small>
+                    <p>R$ 5,45 <span class="down"><i class="fas fa-caret-down"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="container">
+            <h2>Portal de Notícias e Cotações</h2>
+            <p>O mercado global e o monitoramento da lavoura em um só lugar.</p>
+        </div>
+    </section>
+
+    <main class="container main-layout">
+        
+        <section class="left-col">
+            <h2 class="title-decorated">Notícias do Dia</h2>
+            <article class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <span class="category">Safra</span>
+                    <h3>Colheita em Palmital entra na fase final</h3>
+                    <p>Resultados preliminares apontam alta qualidade nos grãos da região...</p>
+                    <a href="#" class="read-more">Ler mais</a>
+                </div>
+            </article>
+
+            <h2 class="title-decorated">Informativo Bolsas Internacionais</h2>
+            <div class="bolsas-grid">
+                <div class="card-bolsa">
+                    <div class="bolsa-header"><i class="fas fa-chart-line"></i> <h4>Chicago (CBOT)</h4></div>
+                    <div class="bolsa-body">
+                        <div class="bolsa-item"><span>Soja</span> <strong>$ 11.82</strong> <span class="up">+0.4%</span></div>
+                        <div class="bolsa-item"><span>Milho</span> <strong>$ 4.35</strong> <span class="down">-0.2%</span></div>
+                    </div>
+                </div>
+                <div class="card-bolsa">
+                    <div class="bolsa-header"><i class="fas fa-globe"></i> <h4>Nova Iorque (ICE)</h4></div>
+                    <div class="bolsa-body">
+                        <div class="bolsa-item"><span>Café</span> <strong>$ 188.40</strong> <span class="up">+1.5%</span></div>
+                        <div class="bolsa-item"><span>Açúcar</span> <strong>$ 21.15</strong> <span class="down">-0.8%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="title-decorated">Alerta Fitossanitário (Pragas)</h2>
+            <div class="card-agro">
+                <div class="disease-item alert-danger">
+                    <div class="disease-info"><i class="fas fa-bug"></i> <div><strong>Ferrugem Asiática</strong> <p>Risco alto na região.</p></div></div>
+                    <span class="status-badge">Perigo</span>
+                </div>
+                <div class="disease-item alert-warning">
+                    <div class="disease-info"><i class="fas fa-shield-virus"></i> <div><strong>Percevejo</strong> <p>Atenção ao monitoramento.</p></div></div>
+                    <span class="status-badge">Atenção</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="right-col">
+            <h2 class="title-decorated">Cotações Coamo</h2>
+            <div class="card-agro">
+                <div class="quote-item">
+                    <div class="icon-circle soja"><i class="fas fa-seedling"></i></div>
+                    <div class="data"><span>Soja (60kg)</span><strong>R$ 123,40</strong></div>
+                </div>
+                <div class="quote-item">
+                    <div class="icon-circle milho"><i class="fas fa-corn"></i></div>
+                    <div class="data"><span>Milho (60kg)</span><strong>R$ 59,00</strong></div>
+                </div>
+                <div class="quote-item">
+                    <div class="icon-circle trigo"><i class="fas fa-wheat-awn"></i></div>
+                    <div class="data"><span>Trigo (60kg)</span><strong>R$ 58,00</strong></div>
+                </div>
+            </div>
+
+            <h2 class="title-decorated">Clima Palmital</h2>
+            <div class="card-weather">
+                <div class="today-focus">
+                    <i class="fas fa-sun yellow"></i>
+                    <div class="today-temp"><p class="temp-big">24°C</p><p>Céu Limpo</p></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgroPalmital - Tecnologia e Tradição.</p>
+    </footer>
+
+    <script>
+        function atualizarRelogio() {
+            document.getElementById('relogio').innerText = new Date().toLocaleTimeString('pt-BR');
+        }
+        setInterval(atualizarRelogio, 1000);
+        atualizarRelogio();
+    </script>
+</body>
+</html>

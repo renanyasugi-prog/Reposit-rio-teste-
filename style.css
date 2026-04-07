@@ -1,0 +1,57 @@
+:root {
+    --green-dark: #1b4332;
+    --green-leaf: #2d6a4f;
+    --soy-gold: #d4a017;
+    --earth: #5d4037;
+    --light-wheat: #f4f5f0;
+}
+
+body { background-color: var(--light-wheat); font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Header & Top Bar */
+.top-announcement { background: var(--earth); color: white; padding: 10px 0; font-size: 0.85rem; border-bottom: 2px solid var(--soy-gold); }
+.flex-top { display: flex; justify-content: space-between; }
+header { background: var(--green-dark); color: white; padding: 25px 0; border-bottom: 4px solid var(--soy-gold); }
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo i { font-size: 2rem; color: var(--soy-gold); }
+.logo h1 span { color: var(--soy-gold); }
+
+/* Banner */
+.hero-banner { 
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover; padding: 60px 0; text-align: center; color: white;
+}
+
+/* Layout */
+.main-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; margin-top: 30px; }
+.title-decorated { color: var(--green-dark); border-left: 5px solid var(--soy-gold); padding-left: 12px; margin-bottom: 20px; font-size: 1.2rem; }
+.card-agro, .card-weather, .news-card, .card-bolsa { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+
+/* News */
+.news-card { display: flex; padding: 0; overflow: hidden; }
+.news-image { width: 150px; background: url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=400&q=80'); background-size: cover; }
+.news-content { padding: 15px; }
+
+/* Quotes & Bolsas */
+.quote-item { display: flex; align-items: center; gap: 15px; padding: 10px 0; border-bottom: 1px solid #eee; }
+.icon-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; }
+.soja { background: var(--soy-gold); }
+.milho { background: #e67e22; }
+.trigo { background: #f39c12; }
+
+.bolsas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.bolsa-item { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 5px 0; }
+
+/* Alertas */
+.disease-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-radius: 8px; margin-bottom: 10px; }
+.alert-danger { background: #fff5f5; border-left: 5px solid #e74c3c; }
+.alert-warning { background: #fffdf2; border-left: 5px solid #f1c40f; }
+.status-badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 10px; color: white; font-weight: bold; }
+.alert-danger .status-badge { background: #e74c3c; }
+.alert-warning .status-badge { background: #f1c40f; color: #333; }
+
+.up { color: #2ecc71; font-weight: bold; }
+.down { color: #e74c3c; font-weight: bold; }
+.yellow { color: #f1c40f; font-size: 2.5rem; }
+footer { background: var(--green-dark); color: white; text-align: center; padding: 30px; margin-top: 40px; }
