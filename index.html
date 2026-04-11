@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroPalmital - O Portal Completo do Campo</title>
+    <title>AgroPalmital - Portal do Produtor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -11,58 +11,53 @@
 
     <div class="top-announcement">
         <div class="container flex-top">
-            <span><i class="fas fa-clock"></i> Brasília: <strong id="relogio">00:00:00</strong></span>
-            <span><i class="fas fa-calendar-alt"></i> 07 de Abril de 2026</span>
+            <span><i class="fas fa-clock"></i> <strong id="relogio">00:00:00</strong></span>
+            <span><i class="fas fa-calendar-alt"></i> 10 de Abril de 2026</span>
         </div>
     </div>
 
     <header>
         <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-leaf"></i>
-                <h1>Agro<span>Palmital</span></h1>
-            </div>
+            <div class="logo"><i class="fas fa-leaf"></i> <h1>Agro<span>Palmital</span></h1></div>
             <div class="market-summary">
-                <div class="summary-item">
-                    <small>DÓLAR COMERCIAL</small>
-                    <p>R$ 5,45 <span class="down"><i class="fas fa-caret-down"></i></span></p>
-                </div>
+                <small>DÓLAR COMERCIAL</small>
+                <p>R$ 5,45 <span class="down"><i class="fas fa-caret-down"></i></span></p>
             </div>
         </div>
     </header>
 
     <section class="hero-banner">
         <div class="container">
-            <h2>Portal de Notícias e Cotações</h2>
-            <p>O mercado global e o monitoramento da lavoura em um só lugar.</p>
+            <h2>Tecnologia e Inteligência para o Campo</h2>
+            <p>O monitoramento da sua lavoura e do mercado em um só lugar.</p>
         </div>
     </section>
 
     <main class="container main-layout">
-        
         <section class="left-col">
             <h2 class="title-decorated">Notícias do Dia</h2>
             <article class="news-card">
                 <div class="news-image"></div>
                 <div class="news-content">
-                    <span class="category">Safra</span>
-                    <h3>Colheita em Palmital entra na fase final</h3>
-                    <p>Resultados preliminares apontam alta qualidade nos grãos da região...</p>
+                    <span class="category">Mercado</span>
+                    <h3>Safra local atinge produtividade recorde</h3>
+                    <p>O clima favorável em Palmital garantiu grãos de excelente peso...</p>
                     <a href="#" class="read-more">Ler mais</a>
                 </div>
             </article>
 
-            <h2 class="title-decorated">Informativo Bolsas Internacionais</h2>
+            <h2 class="title-decorated">Bolsas Internacionais</h2>
             <div class="bolsas-grid">
                 <div class="card-bolsa">
-                    <div class="bolsa-header"><i class="fas fa-chart-line"></i> <h4>Chicago (CBOT)</h4></div>
+                    <div class="bolsa-header"><h4>Chicago (CBOT)</h4></div>
                     <div class="bolsa-body">
                         <div class="bolsa-item"><span>Soja</span> <strong>$ 11.82</strong> <span class="up">+0.4%</span></div>
                         <div class="bolsa-item"><span>Milho</span> <strong>$ 4.35</strong> <span class="down">-0.2%</span></div>
+                        <div class="bolsa-item"><span>Trigo</span> <strong>$ 5.60</strong> <span class="up">+1.1%</span></div>
                     </div>
                 </div>
                 <div class="card-bolsa">
-                    <div class="bolsa-header"><i class="fas fa-globe"></i> <h4>Nova Iorque (ICE)</h4></div>
+                    <div class="bolsa-header"><h4>Nova Iorque (ICE)</h4></div>
                     <div class="bolsa-body">
                         <div class="bolsa-item"><span>Café</span> <strong>$ 188.40</strong> <span class="up">+1.5%</span></div>
                         <div class="bolsa-item"><span>Açúcar</span> <strong>$ 21.15</strong> <span class="down">-0.8%</span></div>
@@ -70,57 +65,66 @@
                 </div>
             </div>
 
-            <h2 class="title-decorated">Alerta Fitossanitário (Pragas)</h2>
+            <h2 class="title-decorated">Alerta Fitossanitário</h2>
             <div class="card-agro">
-                <div class="disease-item alert-danger">
-                    <div class="disease-info"><i class="fas fa-bug"></i> <div><strong>Ferrugem Asiática</strong> <p>Risco alto na região.</p></div></div>
-                    <span class="status-badge">Perigo</span>
-                </div>
-                <div class="disease-item alert-warning">
-                    <div class="disease-info"><i class="fas fa-shield-virus"></i> <div><strong>Percevejo</strong> <p>Atenção ao monitoramento.</p></div></div>
-                    <span class="status-badge">Atenção</span>
+                <div class="disease-container">
+                    <div class="disease-item alert-danger">
+                        <span><strong>Ferrugem Asiática</strong></span>
+                        <button class="btn-saiba-mais" onclick="toggleDoenca('ferrugem')">Saiba Mais</button>
+                    </div>
+                    <div id="ferrugem" class="disease-details">
+                        <p>Causa queda precoce das folhas e reduz a produtividade drasticamente.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="right-col">
+            <h2 class="title-decorated">Calculadora Agro</h2>
+            <div class="card-agro calculator-box">
+                <div class="input-group">
+                    <input type="number" id="valorAgro" placeholder="Valor">
+                    <select id="tipoConversao">
+                        <option value="alqHex">Alq p/ Ha</option>
+                        <option value="busSaca">Bushel p/ Saca</option>
+                    </select>
+                </div>
+                <button class="btn-calc" onclick="calcularAgro()">Converter</button>
+                <div id="resultadoAgro" class="result-box">Resultado: --</div>
+            </div>
+
             <h2 class="title-decorated">Cotações Coamo</h2>
             <div class="card-agro">
-                <div class="quote-item">
-                    <div class="icon-circle soja"><i class="fas fa-seedling"></i></div>
-                    <div class="data"><span>Soja (60kg)</span><strong>R$ 123,40</strong></div>
-                </div>
-                <div class="quote-item">
-                    <div class="icon-circle milho"><i class="fas fa-corn"></i></div>
-                    <div class="data"><span>Milho (60kg)</span><strong>R$ 59,00</strong></div>
-                </div>
-                <div class="quote-item">
-                    <div class="icon-circle trigo"><i class="fas fa-wheat-awn"></i></div>
-                    <div class="data"><span>Trigo (60kg)</span><strong>R$ 58,00</strong></div>
-                </div>
+                <div class="quote-item"><div class="icon-circle soja">S</div><span>Soja: <strong>R$ 123,40</strong></span></div>
+                <div class="quote-item"><div class="icon-circle milho">M</div><span>Milho: <strong>R$ 59,00</strong></span></div>
+                <div class="quote-item"><div class="icon-circle trigo">T</div><span>Trigo: <strong>R$ 58,00</strong></span></div>
             </div>
 
-            <h2 class="title-decorated">Clima Palmital</h2>
-            <div class="card-weather">
+            <h2 class="title-decorated">Clima</h2>
+            <div class="card-weather-agro">
                 <div class="today-focus">
                     <i class="fas fa-sun yellow"></i>
-                    <div class="today-temp"><p class="temp-big">24°C</p><p>Céu Limpo</p></div>
+                    <div class="today-temp"><p class="temp-big">24°C</p><p>Hoje</p></div>
                 </div>
+                <hr class="weather-divider">
+                <a href="clima.html" class="btn-detalhes-clima">Previsão 60 dias <i class="fas fa-plus-circle"></i></a>
             </div>
         </section>
-
     </main>
 
-    <footer>
-        <p>&copy; 2026 AgroPalmital - Tecnologia e Tradição.</p>
-    </footer>
-
     <script>
-        function atualizarRelogio() {
-            document.getElementById('relogio').innerText = new Date().toLocaleTimeString('pt-BR');
-        }
+        function atualizarRelogio() { document.getElementById('relogio').innerText = new Date().toLocaleTimeString('pt-BR'); }
         setInterval(atualizarRelogio, 1000);
-        atualizarRelogio();
+        function toggleDoenca(id) { 
+            let d = document.getElementById(id); 
+            d.style.display = (d.style.display === "block") ? "none" : "block"; 
+        }
+        function calcularAgro() {
+            let v = document.getElementById('valorAgro').value;
+            let t = document.getElementById('tipoConversao').value;
+            let r = t === "alqHex" ? v * 2.42 : v * 0.453;
+            document.getElementById('resultadoAgro').innerHTML = `Resultado: <strong>${r.toFixed(2)}</strong>`;
+        }
     </script>
 </body>
 </html>
