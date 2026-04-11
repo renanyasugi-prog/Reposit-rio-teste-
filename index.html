@@ -3,127 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroPalmital - Portal do Produtor</title>
+    <title>AgroPalmital - Inteligência Rural</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS INTERNO PARA REFINAMENTO NOTA 10 */
+        :root {
+            --shadow-soft: 0 10px 25px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        .main-layout { gap: 50px !important; margin-top: 40px; }
+        .left-col, .right-col { display: flex; flex-direction: column; gap: 50px; } 
+
+        /* Card Nota 10: Efeito de elevação */
+        .card-agro { 
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card-agro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* Títulos mais elegantes */
+        .title-decorated {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--green-dark);
+            border-left: 5px solid var(--soy-gold);
+            padding-left: 15px;
+            margin-bottom: 25px !important;
+        }
+
+        /* Inputs Modernos */
+        .input-agro { 
+            padding: 14px; 
+            border: 2px solid #f0f0f0; 
+            border-radius: 10px; 
+            width: 100%; 
+            margin-bottom: 15px; 
+            font-family: 'Poppins';
+            transition: var(--transition);
+        }
+        .input-agro:focus {
+            border-color: var(--green-leaf);
+            outline: none;
+            background: #fdfdfd;
+        }
+
+        /* Botões com Brilho */
+        .btn-calc { 
+            width: 100%; 
+            padding: 15px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            border: none; 
+            border-radius: 10px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        .btn-calc:active { transform: scale(0.98); }
+
+        .result-box {
+            border-radius: 10px;
+            padding: 15px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px dashed var(--green-leaf);
+        }
+    </style>
 </head>
 <body>
 
     <div class="top-announcement">
         <div class="container flex-top">
+            <span><i class="fas fa-satellite-dish"></i> Painel Operacional Palmital/PR</span>
             <span><i class="fas fa-clock"></i> <strong id="relogio">00:00:00</strong></span>
-            <span><i class="fas fa-calendar-alt"></i> 10 de Abril de 2026</span>
         </div>
     </div>
 
     <header>
         <div class="container header-content">
-            <div class="logo"><i class="fas fa-leaf"></i> <h1>Agro<span>Palmital</span></h1></div>
-            <div class="market-summary">
-                <small>DÓLAR COMERCIAL</small>
+            <div class="logo">
+                <i class="fas fa-leaf seedling-icon"></i>
+                <h1>Agro<span>Palmital</span></h1>
+            </div>
+            <div class="market-summary-card">
+                <small>DÓLAR HOJE</small>
                 <p>R$ 5,45 <span class="down"><i class="fas fa-caret-down"></i></span></p>
             </div>
         </div>
     </header>
 
-    <section class="hero-banner">
-        <div class="container">
-            <h2>Tecnologia e Inteligência para o Campo</h2>
-            <p>O monitoramento da sua lavoura e do mercado em um só lugar.</p>
-        </div>
-    </section>
-
     <main class="container main-layout">
+        
         <section class="left-col">
-            <h2 class="title-decorated">Notícias do Dia</h2>
-            <article class="news-card">
-                <div class="news-image"></div>
-                <div class="news-content">
-                    <span class="category">Mercado</span>
-                    <h3>Safra local atinge produtividade recorde</h3>
-                    <p>O clima favorável em Palmital garantiu grãos de excelente peso...</p>
-                    <a href="#" class="read-more">Ler mais</a>
-                </div>
-            </article>
-
-            <h2 class="title-decorated">Bolsas Internacionais</h2>
-            <div class="bolsas-grid">
-                <div class="card-bolsa">
-                    <div class="bolsa-header"><h4>Chicago (CBOT)</h4></div>
-                    <div class="bolsa-body">
-                        <div class="bolsa-item"><span>Soja</span> <strong>$ 11.82</strong> <span class="up">+0.4%</span></div>
-                        <div class="bolsa-item"><span>Milho</span> <strong>$ 4.35</strong> <span class="down">-0.2%</span></div>
-                        <div class="bolsa-item"><span>Trigo</span> <strong>$ 5.60</strong> <span class="up">+1.1%</span></div>
+            
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-seedling"></i> Estágio da Cultura</h2>
+                <div class="card-agro">
+                    <p style="margin-bottom: 10px; font-weight: 600; color: #555;">Milho Safrinha 2026</p>
+                    <div style="background: #f0f0f0; height: 14px; border-radius: 10px; margin: 20px 0; position: relative; overflow: visible;">
+                        <div style="background: linear-gradient(90deg, #2d6a4f, #52b788); width: 65%; height: 100%; border-radius: 10px;"></div>
+                        <div style="position: absolute; left: 65%; top: -8px; width: 28px; height: 28px; background: #d4a017; border-radius: 50%; border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
                     </div>
-                </div>
-                <div class="card-bolsa">
-                    <div class="bolsa-header"><h4>Nova Iorque (ICE)</h4></div>
-                    <div class="bolsa-body">
-                        <div class="bolsa-item"><span>Café</span> <strong>$ 188.40</strong> <span class="up">+1.5%</span></div>
-                        <div class="bolsa-item"><span>Açúcar</span> <strong>$ 21.15</strong> <span class="down">-0.8%</span></div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; color: #888;">
+                        <span>PLANTIO</span><span>VEGETATIVO</span><span style="color: #2d6a4f;">FLORESCIMENTO</span><span>COLHEITA</span>
                     </div>
                 </div>
             </div>
 
-            <h2 class="title-decorated">Alerta Fitossanitário</h2>
-            <div class="card-agro">
-                <div class="disease-container">
-                    <div class="disease-item alert-danger">
-                        <span><strong>Ferrugem Asiática</strong></span>
-                        <button class="btn-saiba-mais" onclick="toggleDoenca('ferrugem')">Saiba Mais</button>
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-calculator"></i> Estimativa de Colheita</h2>
+                <div class="card-agro">
+                    <div style="display: flex; gap: 15px;">
+                        <input type="number" id="plantasMetro" class="input-agro" placeholder="Plantas/m">
+                        <input type="number" id="vagensPlanta" class="input-agro" placeholder="Vagens/planta">
                     </div>
-                    <div id="ferrugem" class="disease-details">
-                        <p>Causa queda precoce das folhas e reduz a produtividade drasticamente.</p>
+                    <button class="btn-calc" onclick="estimarSafra()" style="background: #2d6a4f; color: white;">Calcular Sacas por Hectare</button>
+                    <div id="resultadoEstimativa" class="result-box" style="margin-top: 15px; background: #f1f8f5;">Aguardando dados da lavoura...</div>
+                </div>
+            </div>
+
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-gas-pump"></i> Eficiência de Combustível</h2>
+                <div class="card-agro" style="background: #fffcf5;">
+                    <input type="number" id="consumoHora" class="input-agro" placeholder="Consumo (Litros/Hora)">
+                    <input type="number" id="rendimentoHa" class="input-agro" placeholder="Rendimento (Hectares/Hora)">
+                    <button class="btn-calc" onclick="calcularDiesel()" style="background: #5d4037; color: white;">Analisar Gasto por Ha</button>
+                    <div id="resultadoDiesel" class="result-box" style="margin-top: 15px; background: #fff;">L/Ha: <strong>--</strong></div>
+                </div>
+            </div>
+
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-globe-americas"></i> Mercado Internacional</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="card-agro" style="padding: 20px;">
+                        <h4 style="color: #2d6a4f; margin-bottom: 15px; font-size: 0.9rem;">CHICAGO (CBOT)</h4>
+                        <div style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
+                            <div style="display:flex; justify-content:space-between;"><span>Soja</span> <strong>$ 11.82</strong></div>
+                            <div style="display:flex; justify-content:space-between;"><span>Milho</span> <strong>$ 4.35</strong></div>
+                            <div style="display:flex; justify-content:space-between;"><span>Trigo</span> <strong>$ 5.60</strong></div>
+                        </div>
+                    </div>
+                    <div class="card-agro" style="padding: 20px;">
+                        <h4 style="color: #2d6a4f; margin-bottom: 15px; font-size: 0.9rem;">NOVA IORQUE (ICE)</h4>
+                        <div style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
+                            <div style="display:flex; justify-content:space-between;"><span>Café</span> <strong>$ 188.40</strong></div>
+                            <div style="display:flex; justify-content:space-between;"><span>Açúcar</span> <strong>$ 21.15</strong></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="right-col">
-            <h2 class="title-decorated">Calculadora Agro</h2>
-            <div class="card-agro calculator-box">
-                <div class="input-group">
-                    <input type="number" id="valorAgro" placeholder="Valor">
-                    <select id="tipoConversao">
-                        <option value="alqHex">Alq p/ Ha</option>
-                        <option value="busSaca">Bushel p/ Saca</option>
-                    </select>
+            
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-store"></i> Cotações Coamo Palmital</h2>
+                <div class="card-agro quotes-panel" style="display: flex; flex-direction: column; gap: 12px; background: linear-gradient(145deg, #ffffff, #f9f9f9);">
+                    <div class="quote-item soja-item" style="border: none; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 12px;">
+                        <div class="data"><span>Soja (60kg)</span><strong>R$ 123,40</strong></div>
+                    </div>
+                    <div class="quote-item milho-item" style="border: none; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 12px;">
+                        <div class="data"><span>Milho (60kg)</span><strong>R$ 59,00</strong></div>
+                    </div>
+                    <div class="quote-item trigo-item" style="border: none; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 12px;">
+                        <div class="data"><span>Trigo (60kg)</span><strong>R$ 58,00</strong></div>
+                    </div>
                 </div>
-                <button class="btn-calc" onclick="calcularAgro()">Converter</button>
-                <div id="resultadoAgro" class="result-box">Resultado: --</div>
             </div>
 
-            <h2 class="title-decorated">Cotações Coamo</h2>
-            <div class="card-agro">
-                <div class="quote-item"><div class="icon-circle soja">S</div><span>Soja: <strong>R$ 123,40</strong></span></div>
-                <div class="quote-item"><div class="icon-circle milho">M</div><span>Milho: <strong>R$ 59,00</strong></span></div>
-                <div class="quote-item"><div class="icon-circle trigo">T</div><span>Trigo: <strong>R$ 58,00</strong></span></div>
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-vial"></i> Tecnologia de Aplicação</h2>
+                <div class="card-agro" style="background: #f4fbf9;">
+                    <input type="number" id="litrosHa" class="input-agro" placeholder="Dose (Litros/Hectare)">
+                    <input type="number" id="tanqueLitros" class="input-agro" placeholder="Capacidade do Tanque (L)">
+                    <button class="btn-calc" onclick="calcularCalda()" style="background: #2d6a4f; color: white;">Calcular Autonomia</button>
+                    <div id="resultadoCalda" class="result-box" style="margin-top: 15px; background: white;">Hectares por Tanque: <strong>--</strong></div>
+                </div>
             </div>
 
-            <h2 class="title-decorated">Clima</h2>
-            <div class="card-weather-agro">
-                <div class="today-focus">
-                    <i class="fas fa-sun yellow"></i>
-                    <div class="today-temp"><p class="temp-big">24°C</p><p>Hoje</p></div>
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-balance-scale"></i> Classificação de Grãos</h2>
+                <div class="card-agro">
+                    <table class="table-agro">
+                        <thead><tr><th>Parâmetro</th><th>Base</th><th>Desconto</th></tr></thead>
+                        <tbody>
+                            <tr><td>Umidade</td><td>14%</td><td>S/ peso</td></tr>
+                            <tr><td>Impureza</td><td>1%</td><td>Proporc.</td></tr>
+                            <tr><td>Ardidos</td><td>6%</td><td>Proporc.</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-                <hr class="weather-divider">
-                <a href="clima.html" class="btn-detalhes-clima">Previsão 60 dias <i class="fas fa-plus-circle"></i></a>
+            </div>
+
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-vector-square"></i> Conversor de Áreas</h2>
+                <div class="card-agro">
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <input type="number" id="valorAgro" class="input-agro" placeholder="Valor" style="margin:0;">
+                        <select id="tipoConversao" style="padding: 10px; border-radius: 10px; border: 2px solid #f0f0f0; font-family:'Poppins';">
+                            <option value="alqHex">Alq > Ha</option>
+                            <option value="hexAlq">Ha > Alq</option>
+                        </select>
+                    </div>
+                    <button class="btn-calc" onclick="calcularAgro()" style="background: #d4a017; color: #132a13;">Converter Medida</button>
+                </div>
+            </div>
+
+            <div class="section-group">
+                <h2 class="title-decorated"><i class="fas fa-cloud-sun-rain"></i> Estação Rural Clima</h2>
+                <div class="card-agro" style="text-align: center; background: linear-gradient(145deg, #2d6a4f, #1b4332); color: white;">
+                    <i class="fas fa-sun" style="font-size: 3rem; color: #ffca28; margin-bottom: 15px;"></i>
+                    <p style="font-size: 2.5rem; font-weight: 700; margin: 0;">24°C</p>
+                    <p style="margin-bottom: 20px; opacity: 0.8;">Céu Limpo em Palmital</p>
+                    <a href="clima.html" class="btn-weather-link" style="background: rgba(255,255,255,0.1); display: block; padding: 12px; border-radius: 8px; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">Ver Previsão Detalhada <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </section>
     </main>
 
+    <footer style="margin-top: 80px; padding: 40px; border-top: 1px solid #eee;">
+        <p>&copy; 2026 AgroPalmital - Tecnologia a serviço do campo.</p>
+    </footer>
+
     <script>
         function atualizarRelogio() { document.getElementById('relogio').innerText = new Date().toLocaleTimeString('pt-BR'); }
         setInterval(atualizarRelogio, 1000);
-        function toggleDoenca(id) { 
-            let d = document.getElementById(id); 
-            d.style.display = (d.style.display === "block") ? "none" : "block"; 
+
+        function estimarSafra() {
+            let pMetro = document.getElementById('plantasMetro').value;
+            let vPlanta = document.getElementById('vagensPlanta').value;
+            if(pMetro && vPlanta) {
+                let resultado = (pMetro * vPlanta * 0.65); 
+                document.getElementById('resultadoEstimativa').innerHTML = `Resultado: <strong>${resultado.toFixed(1)} sacas/ha</strong>`;
+            }
         }
+
+        function calcularDiesel() {
+            let cons = document.getElementById('consumoHora').value;
+            let rend = document.getElementById('rendimentoHa').value;
+            if(cons && rend) {
+                let litrosPorHa = cons / rend;
+                document.getElementById('resultadoDiesel').innerHTML = `Rendimento: <strong>${litrosPorHa.toFixed(2)} L/Ha</strong>`;
+            }
+        }
+
+        function calcularCalda() {
+            let lHa = document.getElementById('litrosHa').value;
+            let tLi = document.getElementById('tanqueLitros').value;
+            if(lHa && tLi) {
+                let haPorTanque = tLi / lHa;
+                document.getElementById('resultadoCalda').innerHTML = `Autonomia: <strong>${haPorTanque.toFixed(2)} Ha</strong>`;
+            }
+        }
+
         function calcularAgro() {
-            let v = document.getElementById('valorAgro').value;
-            let t = document.getElementById('tipoConversao').value;
-            let r = t === "alqHex" ? v * 2.42 : v * 0.453;
-            document.getElementById('resultadoAgro').innerHTML = `Resultado: <strong>${r.toFixed(2)}</strong>`;
+            let valor = document.getElementById('valorAgro').value;
+            let tipo = document.getElementById('tipoConversao').value;
+            if (valor === "") return;
+            let res = tipo === "alqHex" ? valor * 2.42 : valor / 2.42;
+            let unit = tipo === "alqHex" ? " Ha" : " Alq";
+            alert("Resultado da Conversão: " + res.toFixed(2) + unit);
         }
     </script>
 </body>

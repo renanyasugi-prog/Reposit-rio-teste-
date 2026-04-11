@@ -3,36 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previsão 60 Dias - AgroPalmital</title>
+    <title>Clima Diário - AgroPalmital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos específicos para a visão diária estilo Rural Clima */
+        .clima-header-info {
+            background: linear-gradient(135deg, var(--green-leaf), var(--green-dark));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            border-bottom: 5px solid var(--soy-gold);
+        }
+
+        .info-box { text-align: center; border-right: 1px solid rgba(255,255,255,0.2); }
+        .info-box:last-child { border-right: none; }
+        .info-box h4 { margin: 0; font-size: 0.9rem; text-transform: uppercase; color: var(--soy-light); }
+        .info-box p { margin: 5px 0 0; font-size: 1.5rem; font-weight: bold; }
+
+        .timeline-diaria {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .dia-card {
+            display: grid;
+            grid-template-columns: 120px 1fr 150px 150px;
+            align-items: center;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-card);
+            border-left: 8px solid var(--green-leaf);
+            transition: 0.3s;
+        }
+
+        .dia-card:hover { transform: scale(1.01); }
+        .dia-card.chuva { border-left-color: #3498db; }
+        
+        .data-info { font-weight: bold; color: var(--green-dark); }
+        .data-info span { display: block; font-size: 0.8rem; color: var(--text-light); }
+
+        .condicao-info { display: flex; align-items: center; gap: 15px; font-weight: 600; }
+        .condicao-info i { font-size: 1.5rem; }
+        
+        .chuva-info { color: #3498db; font-weight: bold; }
+        .temp-info { font-weight: bold; color: var(--earth-brown); }
+
+        .yellow { color: #f1c40f; }
+        .blue { color: #3498db; }
+        .gray { color: #95a5a6; }
+
+        @media (max-width: 768px) {
+            .dia-card { grid-template-columns: 1fr 1fr; gap: 15px; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <div class="container header-content">
-            <div class="logo"><i class="fas fa-leaf"></i> <h1>Agro<span>Palmital</span></h1></div>
-            <a href="index.html" class="btn-calc" style="text-decoration:none; width:auto; padding: 10px 20px;">Voltar</a>
+            <div class="logo">
+                <i class="fas fa-leaf seedling-icon"></i>
+                <h1>Agro<span>Palmital</span></h1>
+            </div>
+            <a href="index.html" class="btn-weather-link" style="background: var(--soy-gold); color: var(--green-dark); border:none;">
+                <i class="fas fa-home"></i> Voltar ao Portal
+            </a>
         </div>
     </header>
 
     <main class="container" style="margin-top: 30px;">
-        <h2 class="title-decorated">Tendência para os Próximos 60 Dias</h2>
-        <div class="card-agro" style="background: var(--green-dark); color: white; display: flex; justify-content: space-around; padding: 20px;">
-            <div style="text-align:center;"><i class="fas fa-cloud-rain" style="color:var(--soy-gold)"></i><p>Chuva: 165mm</p></div>
-            <div style="text-align:center;"><i class="fas fa-temperature-low" style="color:var(--soy-gold)"></i><p>Média: 21°C</p></div>
+        <h2 class="title-decorated"><i class="fas fa-calendar-day"></i> Previsão Diária Detalhada</h2>
+
+        <div class="clima-header-info">
+            <div class="info-box">
+                <h4>Acumulado 15 dias</h4>
+                <p>45mm</p>
+            </div>
+            <div class="info-box">
+                <h4>Janela de Plantio</h4>
+                <p>Favorável</p>
+            </div>
+            <div class="info-box">
+                <h4>Risco de Geada</h4>
+                <p>Nulo</p>
+            </div>
+            <div class="info-box">
+                <h4>Umidade do Solo</h4>
+                <p>65%</p>
+            </div>
         </div>
 
-        <div class="card-agro">
-            <table style="width:100%; border-collapse: collapse;">
-                <tr style="background:var(--green-leaf); color:white;">
-                    <th style="padding:10px;">Período</th>
-                    <th style="padding:10px;">Condição</th>
-                </tr>
-                <tr><td style="padding:10px; border-bottom:1px solid #eee;">Abril (Final)</td><td style="padding:10px; border-bottom:1px solid #eee;">Tempo seco e ensolarado</td></tr>
-                <tr><td style="padding:10px; border-bottom:1px solid #eee;">Maio (Início)</td><td style="padding:10px; border-bottom:1px solid #eee;">Chuvas isoladas</td></tr>
-                <tr><td style="padding:10px; border-bottom:1px solid #eee;">Maio (Final)</td><td style="padding:10px; border-bottom:1px solid #eee;">Queda brusca de temperatura</td></tr>
-            </table>
+        <div class="timeline-diaria">
+            
+            <div class="dia-card">
+                <div class="data-info">11 Abr<span>Sábado</span></div>
+                <div class="condicao-info">
+                    <i class="fas fa-sun yellow"></i> Sol com poucas nuvens
+                </div>
+                <div class="chuva-info"><i class="fas fa-tint"></i> 0mm (0%)</div>
+                <div class="temp-info"><i class="fas fa-thermometer-half"></i> 16° / 28°</div>
+            </div>
+
+            <div class="dia-card">
+                <div class="data-info">12 Abr<span>Domingo</span></div>
+                <div class="condicao-info">
+                    <i class="fas fa-cloud-sun yellow"></i> Entre nuvens
+                </div>
+                <div class="chuva-info"><i class="fas fa-tint"></i> 2mm (15%)</div>
+                <div class="temp-info"><i class="fas fa-thermometer-half"></i> 17° / 29°</div>
+            </div>
+
+            <div class="dia-card chuva">
+                <div class="data-info">13 Abr<span>Segunda</span></div>
+                <div class="condicao-info">
+                    <i class="fas fa-cloud-showers-heavy blue"></i> Pancadas de Chuva
+                </div>
+                <div class="chuva-info"><i class="fas fa-tint"></i> 18mm (85%)</div>
+                <div class="temp-info"><i class="fas fa-thermometer-half"></i> 15° / 22°</div>
+            </div>
+
+            <div class="dia-card">
+                <div class="data-info">14 Abr<span>Terça</span></div>
+                <div class="condicao-info">
+                    <i class="fas fa-cloud gray"></i> Nublado
+                </div>
+                <div class="chuva-info"><i class="fas fa-tint"></i> 5mm (40%)</div>
+                <div class="temp-info"><i class="fas fa-thermometer-half"></i> 14° / 20°</div>
+            </div>
+
+            </div>
+
+        <div class="card-agro" style="margin-top: 30px; border-left: 5px solid var(--soy-gold);">
+            <p><i class="fas fa-bullseye"></i> <strong>Análise Rural Clima:</strong> A passagem de uma frente fria no dia 13 deve paralisar as atividades de colheita momentaneamente, mas favorece a umidade para o desenvolvimento do milho safrinha.</p>
         </div>
     </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 AgroPalmital - Dados Meteorológicos Agro.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
