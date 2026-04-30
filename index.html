@@ -22,10 +22,8 @@
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
-            color: #333;
         }
 
-        /* Header Profissional */
         .header {
             background-color: white;
             padding: 15px 40px;
@@ -34,14 +32,13 @@
             align-items: center;
             border-bottom: 4px solid var(--verde-agro);
             position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .logo { font-weight: 700; font-size: 1.6rem; color: #333; }
+        .logo { font-weight: 700; font-size: 1.6rem; }
         .logo span { color: var(--verde-agro); }
         
         .header-right { display: flex; gap: 30px; align-items: center; }
-        .relogio-box { color: var(--marrom-agro); font-weight: 700; font-size: 1.1rem; border-right: 2px solid #eee; padding-right: 20px; }
+        .relogio-box { color: var(--marrom-agro); font-weight: 700; font-size: 1.1rem; }
 
         .dolar-link {
             text-decoration: none;
@@ -51,11 +48,8 @@
             padding: 8px 20px;
             border-radius: 10px;
             transition: 0.3s;
-            font-size: 0.9rem;
         }
-        .dolar-link:hover { background: var(--verde-agro); color: white; }
 
-        /* Container Principal */
         .main-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -78,57 +72,65 @@
             margin-bottom: 15px;
             display: flex; align-items: center; gap: 12px;
             color: var(--marrom-agro);
-            border-bottom: 2px solid rgba(0,0,0,0.05);
+            border-bottom: 2px solid rgba(0,0,0,0.1);
             padding-bottom: 10px;
         }
 
-        /* Botoes de Cotação Estilo Foto */
+        /* --- DESTAQUE PARA COTAÇÕES --- */
+        .destaque-cotacao {
+            background: #fff;
+            border: 3px solid var(--gold); /* Borda dourada para chamar atenção */
+            border-radius: 18px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
         .price-button {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px; margin-bottom: 12px;
+            padding: 22px; margin-bottom: 12px;
             background: var(--verde-agro); color: white;
             text-decoration: none; border-radius: 15px;
-            font-weight: 700; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-weight: 700; font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 6px 15px rgba(45, 106, 79, 0.4);
+            animation: pulse-button 3s infinite; /* Animação sutil */
         }
-        .price-button:hover { background: var(--marrom-agro); transform: scale(1.02); }
 
-        /* Widget de Clima */
+        @keyframes pulse-button {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); box-shadow: 0 8px 20px rgba(212, 160, 23, 0.4); }
+            100% { transform: scale(1); }
+        }
+
+        .price-button:hover { background: var(--marrom-agro); transform: translateY(-5px); }
+        /* ----------------------------- */
+
         .clima-btn {
             background: white; padding: 20px; border-radius: 15px;
             display: flex; align-items: center; justify-content: space-between;
             text-decoration: none; color: var(--verde-agro);
             border: 2px solid var(--verde-agro); transition: 0.3s;
         }
-        .clima-btn:hover { background: #f0fdf4; border-color: var(--gold); }
 
-        /* Inputs e Botões */
-        .input-group { position: relative; margin-bottom: 10px; }
-        input { width: 100%; padding: 14px; border-radius: 12px; border: 1px solid #ddd; font-family: 'Poppins'; box-sizing: border-box; }
-        
+        input { width: 100%; padding: 14px; margin: 10px 0; border-radius: 12px; border: 1px solid #ddd; box-sizing: border-box; }
         .btn-flex { display: flex; gap: 10px; margin-top: 10px; }
         .btn { padding: 16px; border-radius: 12px; border: none; color: white; font-weight: 700; cursor: pointer; text-transform: uppercase; flex: 3; }
-        .btn-clear { background: #666; flex: 1; font-size: 0.8rem; }
+        .btn-clear { background: #666; flex: 1; font-size: 0.8rem; border-radius: 12px; border:none; color: white; cursor:pointer;}
         
         .btn-marrom { background: var(--marrom-agro); }
         .btn-verde { background: var(--verde-agro); }
         .btn-gold { background: var(--gold); }
 
-        .result-box { 
-            margin-top: 15px; padding: 15px; background: white; 
-            border-radius: 12px; text-align: center; font-weight: 700; 
-            color: var(--verde-agro); border: 1px dashed var(--verde-agro); 
-        }
+        .result-box { margin-top: 15px; padding: 15px; background: white; border-radius: 12px; text-align: center; font-weight: 700; color: var(--verde-agro); border: 1px dashed var(--verde-agro); }
 
-        /* Rodapé Sugerido */
         .footer-agro {
             background: rgba(255,255,255,0.9);
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             margin-top: 50px;
             border-top: 5px solid var(--gold);
         }
-        .footer-agro p { margin: 5px 0; font-weight: 600; color: var(--marrom-agro); }
 
         @media (max-width: 850px) { .main-container { grid-template-columns: 1fr; } }
     </style>
@@ -137,14 +139,9 @@
 
     <header class="header">
         <div class="logo"><i class="fas fa-leaf"></i> Agro<span>Palmital</span></div>
-        
         <div class="header-right">
-            <div class="relogio-box">
-                <i class="far fa-clock"></i> <span id="clock">00:00:00</span>
-            </div>
-            <a href="https://br.tradingview.com/symbols/USDBRL/" target="_blank" class="dolar-link">
-                DÓLAR COMERCIAL <i class="fas fa-external-link-alt"></i>
-            </a>
+            <div class="relogio-box"><i class="far fa-clock"></i> <span id="clock">00:00:00</span></div>
+            <a href="https://br.tradingview.com/symbols/USDBRL/" target="_blank" class="dolar-link">DÓLAR COMERCIAL <i class="fas fa-external-link-alt"></i></a>
         </div>
     </header>
 
@@ -152,20 +149,17 @@
         
         <section class="col">
             <div class="card">
-                <div class="card-title"><i class="fas fa-cloud-sun"></i> Monitoramento Climático</div>
+                <div class="card-title"><i class="fas fa-cloud-sun"></i> Clima Palmital</div>
                 <a href="https://www.tempo.com/palmital_parana-l116212.htm" target="_blank" class="clima-btn">
                     <div><i class="fas fa-sun fa-3x" style="color: var(--gold);"></i></div>
-                    <div style="text-align: right;">
-                        <span style="font-size: 1.3rem; font-weight: 800;">VER CLIMA AGORA</span><br>
-                        Palmital - PR (Oficial)
-                    </div>
+                    <div style="text-align: right;"><span style="font-size: 1.3rem; font-weight: 800;">VER CLIMA AGORA</span><br>Palmital - PR</div>
                 </a>
             </div>
 
             <div class="card" style="margin-top: 25px;">
-                <div class="card-title"><i class="fas fa-gas-pump"></i> Gasto de Combustível</div>
-                <input type="number" id="cons" placeholder="Consumo do Trator (L/Hora)">
-                <input type="number" id="rend" placeholder="Rendimento da Operação (Ha/Hora)">
+                <div class="card-title"><i class="fas fa-gas-pump"></i> Gasto de Diesel</div>
+                <input type="number" id="cons" placeholder="Consumo (L/Hora)">
+                <input type="number" id="rend" placeholder="Rendimento (Ha/Hora)">
                 <div class="btn-flex">
                     <button class="btn btn-marrom" onclick="calcDiesel()">Analisar</button>
                     <button class="btn btn-clear" onclick="clearField('cons','rend','res-diesel')">LIMPAR</button>
@@ -175,9 +169,9 @@
 
             <div class="card" style="margin-top: 25px;">
                 <div class="card-title"><i class="fas fa-ruler-combined"></i> Conversor de Áreas</div>
-                <input type="number" id="alq" placeholder="Área em Alqueires Paulistas">
+                <input type="number" id="alq" placeholder="Alqueires Paulistas">
                 <div class="btn-flex">
-                    <button class="btn btn-gold" onclick="calcArea()">Converter para Ha</button>
+                    <button class="btn btn-gold" onclick="calcArea()">Converter</button>
                     <button class="btn btn-clear" onclick="clearField('alq','','res-area')">LIMPAR</button>
                 </div>
                 <div class="result-box" id="res-area">Resultado: -- Ha</div>
@@ -186,53 +180,50 @@
 
         <section class="col">
             <div class="card">
-                <div class="card-title"><i class="fas fa-chart-bar"></i> Mercado Coprossel 2026</div>
-                <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; color: #666;">CLIQUE PARA CONSULTA OFICIAL:</p>
+                <div class="card-title"><i class="fas fa-chart-line"></i> Mercado Coprossel 2026</div>
+                
+                <div class="destaque-cotacao">
+                    <i class="fas fa-mouse-pointer" style="color: var(--gold);"></i>
+                    <span style="font-weight: 700; color: var(--marrom-agro); font-size: 0.9rem;">CLIQUE NOS BOTÕES ABAIXO PARA VER O PREÇO ATUALIZADO</span>
+                </div>
                 
                 <a href="https://www.coprossel.com.br/precos?ano=2026&mes=4&dia=Selecione..." target="_blank" class="price-button">
-                    <span>SOJA (60KG)</span> <i class="fas fa-external-link-alt"></i>
+                    <span><i class="fas fa-seedling"></i> SOJA (60KG)</span> <i class="fas fa-external-link-alt"></i>
                 </a>
                 
                 <a href="https://www.coprossel.com.br/precos?ano=2026&mes=4&dia=Selecione..." target="_blank" class="price-button">
-                    <span>MILHO (60KG)</span> <i class="fas fa-external-link-alt"></i>
+                    <span><i class="fas fa-corn"></i> MILHO (60KG)</span> <i class="fas fa-external-link-alt"></i>
                 </a>
                 
                 <a href="https://www.coprossel.com.br/precos?ano=2026&mes=4&dia=Selecione..." target="_blank" class="price-button">
-                    <span>TRIGO (60KG)</span> <i class="fas fa-external-link-alt"></i>
+                    <span><i class="fas fa-wheat-awn"></i> TRIGO (60KG)</span> <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
 
             <div class="card" style="margin-top: 25px;">
                 <div class="card-title"><i class="fas fa-seedling"></i> Estimativa de Produção</div>
-                <input type="number" id="pl" placeholder="Média de plantas por metro">
-                <input type="number" id="vg" placeholder="Média de vagens por planta">
+                <input type="number" id="pl" placeholder="Plantas por metro">
+                <input type="number" id="vg" placeholder="Vagens por planta">
                 <div class="btn-flex">
-                    <button class="btn btn-verde" onclick="calcSafra()">Calcular Sacas</button>
+                    <button class="btn btn-verde" onclick="calcSafra()">Calcular</button>
                     <button class="btn btn-clear" onclick="clearField('pl','vg','res-safra')">LIMPAR</button>
                 </div>
                 <div class="result-box" id="res-safra">Estimativa: -- sc/ha</div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer-agro">
-        <p><i class="fas fa-trophy" style="color: var(--gold);"></i> Projeto Agrinho 2026</p>
-        <p>Desenvolvido pela Equipe AgroPalmital - Tecnologia a serviço do campo</p>
-        <p style="font-size: 0.8rem; color: #888;">Palmital, Paraná - Brasil</p>
+        <p><i class="fas fa-trophy" style="color: var(--gold);"></i> Projeto Agrinho 2026 | Palmital, PR</p>
     </footer>
 
     <script>
-        // Relógio Real
-        setInterval(() => {
-            document.getElementById('clock').innerText = new Date().toLocaleTimeString('pt-BR');
-        }, 1000);
+        setInterval(() => { document.getElementById('clock').innerText = new Date().toLocaleTimeString('pt-BR'); }, 1000);
 
-        // Lógica das Calculadoras
         function calcDiesel() {
             const c = document.getElementById('cons').value;
             const r = document.getElementById('rend').value;
-            if(c && r) document.getElementById('res-diesel').innerText = "Gasto Médio: " + (c/r).toFixed(2) + " L/Ha";
+            if(c && r) document.getElementById('res-diesel').innerText = "Gasto: " + (c/r).toFixed(2) + " L/Ha";
         }
 
         function calcArea() {
@@ -246,7 +237,6 @@
             if(p && v) document.getElementById('res-safra').innerText = "Previsão: " + (p * v * 0.65).toFixed(1) + " sc/ha";
         }
 
-        // Função de Limpar (Sugestão Adicionada)
         function clearField(id1, id2, resId) {
             if(id1) document.getElementById(id1).value = "";
             if(id2) document.getElementById(id2).value = "";
